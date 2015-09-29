@@ -23,6 +23,7 @@
                         <div class="container-fluid row">
                             <input class="col-xs-2 forom-control unborderd_input" type=number min=0 ng-model=person.slices_amount placeholder="slices">
                         </div>
+                        <button class="btn" ng-click=store.add_additions(person)>Add Additions</button>
                         <div ng-show=person.has_additions>
                             <h4>addintions</h4>
                             {{person.slices_amount}}

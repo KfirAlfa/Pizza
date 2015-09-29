@@ -37,6 +37,7 @@
         }
         
         this.add_additions = function(person) {
+            console.log("ADSFAFDSDSAF")
             person.has_additions = true;
         }
         
