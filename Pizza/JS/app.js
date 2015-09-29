@@ -42,17 +42,17 @@
         }
         
         
-        this.add_addition = function(person) {
+        this.add_topping = function(person) {
             balance =  person.slices_amount - person.slices_with_toppings
-            if (person.new_addition.amount <= balance)
+            if (person.new_topping.amount <= balance)
             {
-                person.toppings.push($.extend(true, {}, person.new_addition));
-                person.slices_with_toppings += person.new_addition.amount
-                person.new_addition = null;
+                person.toppings.push($.extend(true, {}, person.new_topping));
+                person.slices_with_toppings += person.new_topping.amount
+                person.new_topping = null;
             }
             else 
             {
-                alert("You dont have enough slcies")
+                alert("You don't have enough slices!");
             }
              
         }
