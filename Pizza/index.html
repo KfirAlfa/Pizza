@@ -11,25 +11,25 @@
         <script type="text/javascript" src="JS/app.js"></script>
     </head>
     <body class="container">
-       <h1>Pizza invite</h1> 
+       <h1>Pizza order</h1> 
         <div class="container center invite" ng-controller="StoreController as store">
-            <h2>Persons:</h2>
+            <h2>People:</h2>
             <div ng-repeat="person in store.persons">
                 <div>
                     <div ng-click=store.show_slices()>
                        <p>> {{person.name}} </p>
                     </div>
-                    <div class="container-fluid" ng_show=store.chosing_slices>
+                    <div class="container-fluid" ng_show="store.chosing_slices">
                         <div class="container-fluid row">
                             <input class="col-xs-2 forom-control unborderd_input" type=number min=0 ng-model=person.slices_amount placeholder="slices">
                         </div>
-                        <button class="btn" ng-click=store.add_additions(person)>Add Additions</button>
-                        <div ng-show=person.has_additions>
+                        <button class="btn" ng-click=store.add_toppings(person)>Add Toppings</button>
+                        <div ng-show=person.has_toppings>
                             <h4>addintions</h4>
-                            <div ng-repeat='addition in person.additions'>
+                            <div ng-repeat='addition in person.toppings'>
                                 {{addition.amount}}, {{addition.name}}
                             </div>
-                            <input placeholder="amount" type="number" min="0" max="{{person.slices_amount - person.slices_with_additions}}" ng-model=person.new_addition.amount>
+                            <input placeholder="amount" type="number" min="0" max="{{person.slices_amount - person.slices_with_toppings}}" ng-model=person.new_addition.amount>
                             <input placeholder="name" ng-model=person.new_addition.name>
                             <button class="btn" ng-click='store.add_addition(person)'>+</button>
                         </div>
@@ -40,8 +40,7 @@
             <div class="container-fluid row">
                 <input class="col-xs-6" ng-model=store.new_person.name placeholder="name...">
                 <button class="btn col-xs-2 col-xs-offset-1"ng-click="store.add_person(store.new_person)">+</button>
-            </div>
-        
+            </div>     
         </div>
     </body>
 </html>

@@ -1,18 +1,18 @@
-(function(){
+(function () {
     var person = {
         name : "unamed",
         slices : {},
-        additions : []
-    }
+        toppings : []
+    };
     var app = angular.module('store', [ ]);
-    app.controller('StoreController', function(){ 
+    app.controller('StoreController', function () { 
         this.persons = [];
         this.new_person = {
             name: '',
             slices: '',
-            has_additions : false,
-            additions : [],
-            slices_with_additions : 0
+            has_toppings : false,
+            toppings : [],
+            slices_with_toppings : 0
         };
         this.chosing_slices = false;
         this.summary = function () {
@@ -25,9 +25,9 @@
             this.new_person = {
                 name: '',
                 slices: '',
-                has_additions : false,
-                additions : [],
-                slices_with_additions : 0
+                has_toppings : false,
+                toppings : [],
+                slices_with_toppings : 0
             };
         }
         this.show_slices = function() {
@@ -36,18 +36,18 @@
             console.log(this.chosing_slices)
         }
         
-        this.add_additions = function(person) {
+        this.add_toppings = function(person) {
             console.log("ADSFAFDSDSAF")
-            person.has_additions = true;
+            person.has_toppings = true;
         }
         
         
         this.add_addition = function(person) {
-            balance =  person.slices_amount - person.slices_with_additions
+            balance =  person.slices_amount - person.slices_with_toppings
             if (person.new_addition.amount <= balance)
             {
-                person.additions.push($.extend(true, {}, person.new_addition));
-                person.slices_with_additions += person.new_addition.amount
+                person.toppings.push($.extend(true, {}, person.new_addition));
+                person.slices_with_toppings += person.new_addition.amount
                 person.new_addition = null;
             }
             else 
