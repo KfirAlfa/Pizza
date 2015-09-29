@@ -52,7 +52,7 @@
             }
             else 
             {
-                alert(balance);
+                alert("You dont have enough slcies")
             }
              
         }
