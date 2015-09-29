@@ -26,12 +26,11 @@
                         <button class="btn" ng-click=store.add_additions(person)>Add Additions</button>
                         <div ng-show=person.has_additions>
                             <h4>addintions</h4>
-                            {{person.slices_amount}}
                             <div ng-repeat='addition in person.additions'>
                                 {{addition.amount}}, {{addition.name}}
                             </div>
-                            <p>amount</p><input type="number" min="0" max="{{person.slices_amount - person.slices_with_additions}}" ng-model=person.new_addition.amount>
-                            <p>name</p></p><input ng-model=person.new_addition.name>
+                            <input placeholder="amount" type="number" min="0" max="{{person.slices_amount - person.slices_with_additions}}" ng-model=person.new_addition.amount>
+                            <input placeholder="name" ng-model=person.new_addition.name>
                             <button class="btn" ng-click='store.add_addition(person)'>+</button>
                         </div>
                     </div>
