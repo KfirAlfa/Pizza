@@ -16,10 +16,10 @@
             <h2>People:</h2>
             <div ng-repeat="person in store.persons">
                 <div>
-                    <div ng-click=store.show_slices()>
+                    <div ng-init="person.show_slices=false" ng-click="person.show_slices=!person.show_slices">
                        <p>> {{person.name}} </p>
                     </div>
-                    <div class="container-fluid" ng_show="store.chosing_slices">
+                    <div class="container-fluid" ng_show="person.show_slices">
                         <div class="container-fluid row">
                             <input class="col-xs-2 forom-control unborderd_input" type=number min=0 ng-model=person.slices_amount placeholder="slices">
                         </div>

@@ -1,9 +1,4 @@
 (function () {
-    var person = {
-        name : "unamed",
-        slices : {},
-        toppings : []
-    };
     var app = angular.module('store', [ ]);
     app.controller('StoreController', function () { 
         this.persons = [];
@@ -17,7 +12,6 @@
         this.chosing_slices = false;
         this.summary = function () {
             for (i = 0; i < this.persons.length; i++) {
-                console.log(this.persons[i]);
             }
         }
         this.add_person = function(person) {
@@ -31,13 +25,10 @@
             };
         }
         this.show_slices = function() {
-            console.log(this.chosing_slices)
             this.chosing_slices = !this.chosing_slices;
-            console.log(this.chosing_slices)
         }
         
         this.add_toppings = function(person) {
-            console.log("ADSFAFDSDSAF")
             person.has_toppings = true;
         }
         
