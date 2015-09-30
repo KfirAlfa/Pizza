@@ -15,20 +15,24 @@
         <div class="container center invite" ng-controller="StoreController as store">
             <h4>Peoples:</h4>
             <div ng-repeat="person in store.persons">
-                <div class="continer-fluid">
+                <div class="continer-fluid color-row{{$index % 2}}">
                     <div class="container-fluid row" ng-init="person.show_toppings=false">
                         <p class="col-xs-4">> {{person.name}}</p>
-                        <p class="col-xs-1">slices</p>
-                        <div class="col-xs-2">
-                            <input style="width:100%" type=number min=0 ng-model=person.slices placeholder="slices">
+                        <div class="col-xs-4 row">
+                            <div class="col-xs-5">
+                                <p>slices:</p>
+                            </div>
+                            <div class="col-xs-5">
+                                <input class="slice_input " type=number min=0 ng-model=person.slices>
+                            </div>
                         </div>
-                        <button class="btn col-xs-5" ng-click="person.show_toppings=!person.show_toppings">Toppings</button>
+                        <button class="btn col-xs-2" ng-click="person.show_toppings=!person.show_toppings">Toppings</button>
                     </div>
                     <div>
                         <div class="container-fluid row">
                         </div>
                         <div ng-show=person.show_toppings>
-                            <h5>toppings</h5>
+                            <p class="headline">toppings</p>
                             <div ng-repeat='topping in person.toppings'>
                                 {{topping.amount}}, {{topping.name}}
                             </div>

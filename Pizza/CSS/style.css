@@ -1,7 +1,20 @@
 .invite {
-    width: 40%;
+    width: 50%;
 }
 
-.unborderd_input {
-    border: 0px;
+.slice_input {
+    background: transparent;
+    width: 100%;
+}
+
+.color-row0 {
+    background-color: lightcyan;
+}
+.color-row1 {
+    background-color: lightskyblue;
+}
+
+.headline {
+    border-bottom: solid;
+    border-bottom-color: black;
 }
