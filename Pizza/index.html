@@ -13,22 +13,22 @@
     <body class="container">
        <h1>Pizza order</h1> 
         <div class="container center invite" ng-controller="StoreController as store">
-            <h2>People:</h2>
+            <h4>Peoples:</h4>
             <div ng-repeat="person in store.persons">
                 <div class="continer-fluid">
-                    <div class="container-fluid row" ng-init="person.show_slices=false">
+                    <div class="container-fluid row" ng-init="person.show_toppings=false">
                         <p class="col-xs-4">> {{person.name}}</p>
                         <p class="col-xs-1">slices</p>
                         <div class="col-xs-2">
                             <input style="width:100%" type=number min=0 ng-model=person.slices placeholder="slices">
                         </div>
-                        <button class="btn col-xs-5" ng-click=store.add_toppings(person)>Add Toppings</button>
+                        <button class="btn col-xs-5" ng-click="person.show_toppings=!person.show_toppings">Toppings</button>
                     </div>
                     <div>
                         <div class="container-fluid row">
                         </div>
-                        <div ng-show=person.has_toppings>
-                            <h4>toppings</h4>
+                        <div ng-show=person.show_toppings>
+                            <h5>toppings</h5>
                             <div ng-repeat='topping in person.toppings'>
                                 {{topping.amount}}, {{topping.name}}
                             </div>
