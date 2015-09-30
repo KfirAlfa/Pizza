@@ -15,21 +15,24 @@
         <div class="container center invite" ng-controller="StoreController as store">
             <h2>People:</h2>
             <div ng-repeat="person in store.persons">
-                <div>
-                    <div ng-init="person.show_slices=false" ng-click="person.show_slices=!person.show_slices">
-                       <p>> {{person.name}} </p>
-                    </div>
-                    <div class="container-fluid" ng_show="person.show_slices">
-                        <div class="container-fluid row">
-                            <input class="col-xs-2 forom-control unborderd_input" type=number min=0 ng-model=person.slices_amount placeholder="slices">
+                <div class="continer-fluid">
+                    <div class="container-fluid row" ng-init="person.show_slices=false">
+                        <p class="col-xs-4">> {{person.name}}</p>
+                        <p class="col-xs-1">slices</p>
+                        <div class="col-xs-2">
+                            <input style="width:100%" type=number min=0 ng-model=person.slices placeholder="slices">
                         </div>
-                        <button class="btn" ng-click=store.add_toppings(person)>Add Toppings</button>
+                        <button class="btn col-xs-5" ng-click=store.add_toppings(person)>Add Toppings</button>
+                    </div>
+                    <div>
+                        <div class="container-fluid row">
+                        </div>
                         <div ng-show=person.has_toppings>
                             <h4>toppings</h4>
                             <div ng-repeat='topping in person.toppings'>
                                 {{topping.amount}}, {{topping.name}}
                             </div>
-                            <input placeholder="amount" type="number" min="0" max="{{person.slices_amount - person.slices_with_toppings}}" ng-model=person.new_topping.amount>
+                            <input placeholder="amount" type="number" min="0" max="{{person.slices - person.slices_with_toppings}}" ng-model=person.new_topping.amount>
                             <input placeholder="name" ng-model=person.new_topping.name>
                             <button class="btn" ng-click='store.add_topping(person)'>+</button>
                         </div>

@@ -4,7 +4,7 @@
         this.persons = [];
         this.new_person = {
             name: '',
-            slices: '',
+            slices: 0,
             has_toppings : false,
             toppings : [],
             slices_with_toppings : 0
@@ -18,7 +18,7 @@
             this.persons.push($.extend(true, {}, person));
             this.new_person = {
                 name: '',
-                slices: '',
+                slices: 0,
                 has_toppings : false,
                 toppings : [],
                 slices_with_toppings : 0
@@ -34,7 +34,7 @@
         
         
         this.add_topping = function(person) {
-            balance =  person.slices_amount - person.slices_with_toppings
+            balance =  person.slices - person.slices_with_toppings
             if (person.new_topping.amount <= balance)
             {
                 person.toppings.push($.extend(true, {}, person.new_topping));
