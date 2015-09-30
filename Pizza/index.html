@@ -33,12 +33,34 @@
                         </div>
                         <div ng-show=person.show_toppings>
                             <p class="headline">toppings</p>
-                            <div ng-repeat='topping in person.toppings'>
-                                {{topping.amount}}, {{topping.name}}
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <p>name</p>
+                                </div>
+                                <div class="col-xs-2 col-xs-offset-1">
+                                    <p>amount</p>
+                                </div>
                             </div>
-                            <input placeholder="amount" type="number" min="0" max="{{person.slices - person.slices_with_toppings}}" ng-model=person.new_topping.amount>
-                            <input placeholder="name" ng-model=person.new_topping.name>
-                            <button class="btn" ng-click='store.add_topping(person)'>+</button>
+                            <div class="row" ng-repeat='topping in person.toppings'>
+                                <div class="col-xs-4">
+                                    <p>{{topping.name}}</p>
+                                </div>
+                                <div class="col-xs-2 col-xs-offset-1">
+                                    <p>{{topping.amount}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input placeholder="name" ng-model=person.new_topping.name>
+                                </div>
+                                <div class="col-xs-2 col-xs-offset-1">
+                                    <input placeholder="amount" type="number" min="0" max="{{person.slices - person.slices_with_toppings}}" ng-model=person.new_topping.amount>
+                                </div>
+                                <div class="col-xs-1">
+                                    <button class="btn" ng-click='store.add_topping(person)'>+</button>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
