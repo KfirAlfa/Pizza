@@ -1,0 +1,1 @@
+"c:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-agent="Android" --user-data-dir="C:/temp-chrome-eng" --app="file:///C:/Users/kfir/Documents/GitHub/Pizza/Pizza/index.html"
