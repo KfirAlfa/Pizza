@@ -1,0 +1,12 @@
+<div>
+    {{summary=calculate_slices(persons)}}
+    <p>Can buy?: {{summary.can_buy}}</p>
+    <p>Number of pizzas: {{summary.pizza_count}}</p>
+    <p>Toppings: </p>
+    <ul>
+        <li ng-repeat='(name, count) in summary.toppings'>
+            {{name}}, {{count}}
+        </li>
+    </ul>
+    
+</div>

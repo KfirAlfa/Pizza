@@ -38,7 +38,7 @@
                                     <p>name</p>
                                 </div>
                                 <div class="col-xs-2 col-xs-offset-1">
-                                    <p>amount</p>
+                                    <p>count</p>
                                 </div>
                             </div>
                             <div class="row" ng-repeat='topping in person.toppings'>
@@ -46,7 +46,7 @@
                                     <p>{{topping.name}}</p>
                                 </div>
                                 <div class="col-xs-2 col-xs-offset-1">
-                                    <p>{{topping.amount}}</p>
+                                    <p>{{topping.count}}</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -54,7 +54,7 @@
                                     <input placeholder="name" ng-model=person.new_topping.name>
                                 </div>
                                 <div class="col-xs-2 col-xs-offset-1">
-                                    <input placeholder="amount" type="number" min="0" max="{{person.slices - person.slices_with_toppings}}" ng-model=person.new_topping.amount>
+                                    <input placeholder="count" type="number" min="0" max="{{person.slices - person.slices_with_toppings}}" ng-model=person.new_topping.count>
                                 </div>
                                 <div class="col-xs-1">
                                     <button class="btn" ng-click='store.add_topping(person)'>+</button>
@@ -69,7 +69,8 @@
             <div class="container-fluid row">
                 <input class="col-xs-6" ng-model=store.new_person.name placeholder="name...">
                 <button class="btn col-xs-2 col-xs-offset-1"ng-click="store.add_person(store.new_person)">+</button>
-            </div>     
-        </div>
+            </div>
+            <piz-pizza kfir="dani" persons=store.persons></piz-pizza>
+        </div>     
     </body>
 </html>
