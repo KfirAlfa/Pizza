@@ -14,7 +14,7 @@
        <h1>Pizza order</h1> 
         <div class="container center invite" ng-controller="StoreController as store">
             <h4>People:</h4>
-            <div ng-repeat="person in store.persons">
+            <div ng-repeat="person in store.people">
                 <div class="container-fluid color-row{{$index % 2}}">
                     <div class="container-fluid row" ng-init="person.show_toppings=false">
                         <p class="col-xs-4">> {{person.name}}</p>
@@ -70,7 +70,7 @@
                 <input class="col-xs-6" ng-model=store.new_person.name placeholder="name...">
                 <button class="btn col-xs-2 col-xs-offset-1"ng-click="store.add_person(store.new_person)">+</button>
             </div>
-            <piz-pizza kfir="dani" persons=store.persons></piz-pizza>
+            <piz-pizza kfir="dani" people=store.people></piz-pizza>
         </div>     
     </body>
 </html>
