@@ -47,14 +47,11 @@
                             </div>
 
                             <!-- selected slics -->
-                            {{person.slices}}
-                            <div class="row" ng-repeat='topping_name, count in person.slices'>
+                            <div class="row" ng-repeat='(topping_name, count) in person.slices'>
                                 <div class="col-xs-4">
-                                    aaa
                                     <p>{{topping_name}}</p>
                                 </div>
                                 <div class="col-xs-2 col-xs-offset-1">
-                                    bbb
                                     <p>{{count}}</p>
                                 </div>
                             </div>
