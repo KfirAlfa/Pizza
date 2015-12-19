@@ -1,55 +1,42 @@
 (function () {
+    var app = angular.module('store', ['ngMaterial']);
     slices_in_pizza = 8;
-    var app = angular.module('store', [ ]);
     app.controller('StoreController', function () {
         this.people = [];
-        this.slices = 0;
         this.new_person = {
             name: '',
-            slices: 0,
-            has_toppings : false,
-            toppings : [],
-            slices_with_toppings : 0
+            slices: {},
+            total_slices:0, 
         };
+        this.toppings = [
+            { value: 'blank', display: 'blank'},
+            { value: 'גבינה בולגרית', display: 'גבינה בוולגרית'},
+            { value: 'זיתעם', display: 'זיתים'},
+        ]
         this.chosing_slices = false;
         this.add_person = function (person) {
             this.people.push($.extend(true, {}, person));
             this.new_person = {
                 name: '',
                 slices: 0,
-                has_toppings : false,
-                toppings : [],
-                slices_with_toppings : 0
             };
         };
         
-        this.add_toppings = function (person) {
-            person.has_toppings = true;
-        };
-        
-        this.add_topping = function (person) {
-            balance =  person.slices - person.slices_with_toppings;
-            if (person.new_topping.count <= balance) {
-                person.toppings.push($.extend(true, {}, person.new_topping));
-                person.slices_with_toppings += person.new_topping.count;
-                person.new_topping = null;
-            } else {
-                alert("You don't have enough slices!");
-            }
+        this.add_slices = function (person) {
+            //person.toppings.push($.extend(true, {}, person.new_topping));
+            console.log(person.new_topping.name.display)
+            person.slices[person.new_topping.name.display] = person.new_topping.count;
+            console.log(person)
+            person.new_topping = null;
              
         }; 
-    });
 
-    /*
-    app.directive('pizPerson', function () {
-        return {
-            templateUrl: "pizPerson.html",
-            controller: "StoreController",
-            controllerAs: "store"
-        };
+        this.findToppings = function (search_text) {
+            return this.toppings;
+        }
     });
-    */
-    
+ 
+    /*   
     app.directive("pizPizza", function() {
         return {
             restrict: 'E',
@@ -89,4 +76,5 @@
             }]
         };
     });
+*/
 })();
